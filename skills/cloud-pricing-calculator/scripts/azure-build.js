@@ -187,6 +187,9 @@ async function buildEstimate(page, est) {
 	const total = money(headerTotal) ?? +lines.reduce((s, l) => s + (l.monthly || 0), 0).toFixed(2);
 	fs.mkdirSync(OUT, { recursive: true });
 	const base = path.join(OUT, `Azure_${slug(est.name)}`);
+	// Show the estimate's header (name and total) rather than wherever the last edited field left the page.
+	await page.locator(".wa-calcService").first().scrollIntoViewIfNeeded().catch(() => {});
+	await page.evaluate(() => { const h = document.querySelector("#estimate-tabs, .estimate-header, .calculator-estimate"); (h || document.body).scrollIntoView({ block: "start" }); }).catch(() => {});
 	await page.screenshot({ path: base + ".png" });
 	let xlsx = "";
 	try {

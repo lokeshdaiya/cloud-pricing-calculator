@@ -13,6 +13,11 @@ You get what the vendor's own calculator produces:
 
 No prices are hard-coded: the numbers are whatever the calculator shows on the day you run it.
 
+![An estimate built by the skill in the AWS Pricing Calculator](docs/aws-estimate-example.png)
+
+*An estimate the skill built from [`examples/aws-serverless-web-app.json`](skills/cloud-pricing-calculator/examples/aws-serverless-web-app.json):
+named, described, priced, exported and shared without a click.*
+
 ## Why
 
 Both calculators are point-and-click only: neither has an API to create an estimate. Retyping a
@@ -33,7 +38,15 @@ Inside Claude Code:
 Claude then uses the skill whenever you ask for an Azure or AWS estimate, and runs `npm install` in the
 skill folder the first time it needs the scripts.
 
-### As a plain skill
+### With the skills CLI (Claude Code, Cursor, Codex and other agents)
+
+```
+npx skills add lokeshdaiya/cloud-pricing-calculator
+```
+
+This uses the open [skills](https://skills.sh) installer and works with any agent it supports.
+
+### By hand
 
 Copy `skills/cloud-pricing-calculator/` into `~/.claude/skills/` (personal) or `.claude/skills/` in a project,
 then run `npm install` inside it.
