@@ -1,0 +1,31 @@
+{
+  "calculator": "aws",
+  "region": "Asia Pacific (Mumbai)",
+  "estimates": [
+    {
+      "name": "Sample web app - PROD",
+      "services": [
+        {
+          "service": "AWS Lambda",
+          "description": "API functions",
+          "fields": [
+            { "radio": "Lambda Function - Without Free Tier" },
+            { "label": "Architecture", "option": "Arm" },
+            { "label": "Number of requests", "value": 5, "unit": "million per month" },
+            { "label": "Duration of each request (in ms)", "value": 300 },
+            { "label": "Amount of memory allocated", "value": 1024, "unit": "MB" }
+          ]
+        },
+        {
+          "service": "Amazon Simple Storage Service (S3)",
+          "description": "Document storage",
+          "fields": [
+            { "label": "S3 Standard storage", "value": 500, "unit": "GB per month" },
+            { "label": "PUT, COPY, POST, LIST requests to S3 Standard", "value": 100000 },
+            { "label": "GET, SELECT, and all other requests from S3 Standard", "value": 1000000 }
+          ]
+        }
+      ]
+    }
+  ]
+}

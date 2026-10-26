@@ -1,0 +1,8 @@
+{
+  "name": "cloud-pricing-calculator",
+  "version": "1.0.0",
+  "description": "Build cost estimates on the official Azure Pricing Calculator and AWS Pricing Calculator with Playwright: share links, the calculators' own exports and per-service monthly costs, from a JSON spec.",
+  "author": { "name": "Lokesh Daiya" },
+  "license": "MIT",
+  "keywords": ["azure", "aws", "pricing", "cost-estimate", "pricing-calculator", "playwright", "finops"]
+}

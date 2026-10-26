@@ -1,0 +1,16 @@
+{
+  "name": "cloud-pricing-calculator",
+  "version": "1.0.0",
+  "description": "Build cost estimates on the official Azure and AWS pricing calculators with Playwright, from a JSON spec.",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "azure": "node scripts/azure-build.js",
+    "aws": "node scripts/aws-build.js"
+  },
+  "dependencies": {
+    "playwright-core": "^1.48.0"
+  },
+  "author": "Lokesh Daiya"
+}

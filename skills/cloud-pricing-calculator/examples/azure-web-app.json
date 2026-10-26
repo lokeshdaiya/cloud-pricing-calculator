@@ -1,0 +1,47 @@
+{
+  "calculator": "azure",
+  "region": "central-india",
+  "currency": "USD",
+  "estimates": [
+    {
+      "name": "Sample web app - DEV",
+      "services": [
+        { "slug": "app-service", "name": "App Service plan - B1 (web + worker)",
+          "select": { "type": "linux", "tier": "basic", "size": "b1" }, "fill": { "instances": 1, "hours": 730 } },
+        { "slug": "postgresql", "name": "PostgreSQL Flexible - B1ms, 32 GiB",
+          "select": { "tier": "burstable", "burstableType": "flexible-server-burstable-compute-b1ms" },
+          "fill": { "singleServers": 1, "singleHours": 730, "storageCount": 32 } },
+        { "slug": "storage", "name": "Blob storage - LRS Hot, 50 GB",
+          "select": { "type": "block-blob", "performanceTier": "standard", "storageAccountType": "general-purpose-v2", "accessTier": "hot", "redundancy": "lrs" },
+          "fill": { "count": 50, "blobWriteOperations": 5, "blobReadOperations": 10 } },
+        { "slug": "key-vault", "name": "Key Vault Standard", "fill": { "operations": 10 } },
+        { "slug": "monitor", "name": "Log Analytics + App Insights",
+          "expand": ["Log Data Ingestion", "Alert Rules"],
+          "fill": { "dailyLogsIngested": 0.07, "logAlerts": 2 } }
+      ]
+    },
+    {
+      "name": "Sample web app - PROD",
+      "services": [
+        { "slug": "app-service", "name": "App Service plan - web, P0v3 x 2",
+          "select": { "type": "linux", "tier": "premiumv3", "size": "p0v3" }, "fill": { "instances": 2, "hours": 730 } },
+        { "slug": "app-service", "name": "App Service plan - worker, P0v3",
+          "select": { "type": "linux", "tier": "premiumv3", "size": "p0v3" }, "fill": { "instances": 1, "hours": 730 } },
+        { "slug": "postgresql", "name": "PostgreSQL Flexible - D2ds v5, zone-redundant HA, 128 GiB",
+          "select": { "tier": "generalpurpose", "computeInstanceSeries": "ddsv5", "computeType": "d2ds v5" },
+          "fill": { "singleServers": 2, "singleHours": 730, "storageCount": 128 } },
+        { "slug": "storage", "name": "Blob storage - ZRS Hot, 500 GB",
+          "select": { "type": "block-blob", "performanceTier": "standard", "storageAccountType": "general-purpose-v2", "accessTier": "hot", "redundancy": "zrs" },
+          "fill": { "count": 500, "blobWriteOperations": 20, "blobReadOperations": 50 } },
+        { "slug": "key-vault", "name": "Key Vault Standard", "fill": { "operations": 50 } },
+        { "slug": "application-gateway", "name": "Application Gateway WAF v2",
+          "select": { "tier": "wafv2" }, "fill": { "hours": 730, "computeUnits": 2, "units": 50 } },
+        { "slug": "openai-service", "name": "Embeddings - text-embedding-3-large", "region": "sweden-central",
+          "select": { "selectedModelSeries": "embedding-models", "modelForEmbedding": "text-embedding-3-large" }, "fill": { "tokens": 6000 } },
+        { "slug": "monitor", "name": "Log Analytics + App Insights + alerts",
+          "expand": ["Log Data Ingestion", "Alert Rules"],
+          "fill": { "dailyLogsIngested": 0.33, "logAlerts": 10 } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "cloud-pricing-calculator",
+  "owner": { "name": "Lokesh Daiya" },
+  "plugins": [
+    {
+      "name": "cloud-pricing-calculator",
+      "source": "./",
+      "description": "Build cost estimates on the official Azure and AWS pricing calculators: share links, exports and per-service costs from a JSON spec.",
+      "version": "1.0.0",
+      "author": { "name": "Lokesh Daiya" }
+    }
+  ]
+}
