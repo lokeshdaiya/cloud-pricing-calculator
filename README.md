@@ -26,7 +26,7 @@ This skill keeps the estimate as a reviewable file and replays it.
 Inside Claude Code:
 
 ```
-/plugin marketplace add <github-user>/cloud-pricing-calculator
+/plugin marketplace add lokeshdaiya/cloud-pricing-calculator
 /plugin install cloud-pricing-calculator@cloud-pricing-calculator
 ```
 
